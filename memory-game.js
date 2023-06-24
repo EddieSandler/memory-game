@@ -43,23 +43,19 @@ function createCards(colors) {
 
   for (let color of colors) {
     // missing code here ...
+
     const cardColor=document.createElement('div')
     cardColor.id=color
     cardColor.className=color
     gameBoard.appendChild(cardColor)
 
     }
-    let counter=0
-    gameBoard.addEventListener("click",function(e) {
-counter++
-console.log(counter)
-      handleCardClick(e)
+    let count =0;
+    document.addEventListener("click",function(e) {
 
+        handleCardClick(e)
 
   })
-
-
-
 
 }
 
@@ -86,17 +82,19 @@ console.log("this is the unflip card function- wll need to set timeout to turn o
 function handleCardClick(evt) {
   // ... you need to write this
 
-  let card=evt.target
-  console.log('this is the handleclick function (limit to 2 clicks)')
+let click =evt.detail
 
-  flipCard(card)
+
+
+
+let card =evt.target
+
+
+flipCard(card)
 
 
 
 }
-
-
-
 
 
 
