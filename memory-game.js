@@ -62,20 +62,50 @@ function createCards(colors) {
 
 /** Flip a card face-up. */
 
-function flipCard(card1,card2) {
+function flipCard(card) {
   // ... you need to write this ...
-  console.log('first: ',card1)
-  console.log('second :',card2)
-  // card.style.backgroundColor=card.id
-  // unFlipCard(card)
+  card.classList.toggle('flipped')
+  card.style.backgroundColor=card.id
+
+ let flippedCards=document.querySelectorAll("div.flipped")
+
+
+ let firstCard=flippedCards[0]
+ console.log(firstCard.id)
+
+
+ if(flippedCards.length > 1) {
+ let secondCard=flippedCards[1] //
+  console.log(secondCard.id)
+  if (firstCard.id === secondCard.id){
+    console.log("MATCH")
+    firstCard.classList.toggle('matched')
+    secondCard.classList.toggle('matched')
+    console.log(secondCard.classList)
+
+
+
+
+  } else {
+    for(card of flippedCards) {
+      unFlipCard(card)
+    }
+  }
 }
+ }
+
 
 /** Flip a card face-down. */
 
 function unFlipCard(card) {
   // ... you need to write this ...
 
-  console.log('so far so good')
+  card.classList.toggle('flipped')
+  card.classList.toggle('clicked')
+  setTimeout(() => {
+    card.style.backgroundColor='';
+  }, "1000");
+
 }
 
 /** Handle clicking on a card: this could be first-card or second-card. */
@@ -83,8 +113,9 @@ function unFlipCard(card) {
 function handleCardClick(evt) {
 let firstCard=null
 let secondCard = null
-//toggle card attribute to'clicked'
+// //toggle card attribute to'clicked'
 let clickedCard=evt.target
+
 clickedCard.classList.toggle('clicked')
 
 //set first and second cards to the selected cards
@@ -92,14 +123,11 @@ let selectedCards=document.querySelectorAll("div.clicked")
 
 
 
-if(selectedCards.length ==2){
-  firstCard=selectedCards[0]
-  secondCard=selectedCards[1]
 
+if(selectedCards.length<=2){
+  flipCard(clickedCard)
 }
 
-
-flipCard(firstCard,secondCard)
 }
 
 
