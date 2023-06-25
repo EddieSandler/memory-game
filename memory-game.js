@@ -44,17 +44,17 @@ function createCards(colors) {
   for (let color of colors) {
     // missing code here ...
 
-    const cardColor=document.createElement('div')
-    cardColor.id=color
-    cardColor.className=color
-    gameBoard.appendChild(cardColor)
+    const card=document.createElement('div')
+    card.id=color
+    card.classList.add(color)
+    gameBoard.appendChild(card)
 
     }
-    let count =0;
-    document.addEventListener("click",function(e) {
+
+    gameBoard.addEventListener("click",function(e) {
+
 
         handleCardClick(e)
-
   })
 
 }
@@ -62,39 +62,51 @@ function createCards(colors) {
 
 /** Flip a card face-up. */
 
-function flipCard(card) {
+function flipCard(card1,card2) {
   // ... you need to write this ...
-  console.log("this is the flip card function")
-  card.style.backgroundColor=card.id
-  unFlipCard(card)
+  console.log('first: ',card1)
+  console.log('second :',card2)
+  // card.style.backgroundColor=card.id
+  // unFlipCard(card)
 }
 
 /** Flip a card face-down. */
 
 function unFlipCard(card) {
   // ... you need to write this ...
-console.log("this is the unflip card function- wll need to set timeout to turn over")
+
   console.log('so far so good')
 }
 
 /** Handle clicking on a card: this could be first-card or second-card. */
 
 function handleCardClick(evt) {
-  // ... you need to write this
+let firstCard=null
+let secondCard = null
+//toggle card attribute to'clicked'
+let clickedCard=evt.target
+clickedCard.classList.toggle('clicked')
 
-let click =evt.detail
-
-
-
-
-let card =evt.target
-
-
-flipCard(card)
+//set first and second cards to the selected cards
+let selectedCards=document.querySelectorAll("div.clicked")
 
 
+
+if(selectedCards.length ==2){
+  firstCard=selectedCards[0]
+  secondCard=selectedCards[1]
 
 }
+
+
+flipCard(firstCard,secondCard)
+}
+
+
+
+
+
+
 
 
 
