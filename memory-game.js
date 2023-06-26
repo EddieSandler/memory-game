@@ -53,6 +53,10 @@ function createCards(colors) {
 
     gameBoard.addEventListener("click",function(e) {
 
+      // console.log(e.target.classList)
+
+
+
 
         handleCardClick(e)
   })
@@ -69,19 +73,34 @@ function flipCard(card) {
 
  let flippedCards=document.querySelectorAll("div.flipped")
 
+let score =0
 
  let firstCard=flippedCards[0]
- console.log(firstCard.id)
+//  console.log(firstCard.id)
 
 
  if(flippedCards.length > 1) {
  let secondCard=flippedCards[1] //
-  console.log(secondCard.id)
+  // console.log(secondCard.id)
   if (firstCard.id === secondCard.id){
     console.log("MATCH")
     firstCard.classList.toggle('matched')
     secondCard.classList.toggle('matched')
-    console.log(secondCard.classList)
+    // console.log(secondCard.classList)
+
+
+    let matched=document.querySelectorAll("div.matched")
+    console.log(matched)
+    for(let element of matched){
+      element.remove()
+    }
+
+
+
+    //can i remove the event listener for these cards
+    // document.removeEventListener('click',function(e){
+      // handleCardClick(e)
+    // })
 
 
 
@@ -111,8 +130,7 @@ function unFlipCard(card) {
 /** Handle clicking on a card: this could be first-card or second-card. */
 
 function handleCardClick(evt) {
-let firstCard=null
-let secondCard = null
+
 // //toggle card attribute to'clicked'
 let clickedCard=evt.target
 
