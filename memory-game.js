@@ -71,18 +71,25 @@ function handleCardClick(evt) {
     const secondCard = selectedCards[1];
 
     if (firstCard.id === secondCard.id) {
-      alert("MATCH");
+      console.log("MATCH");
       firstCard.classList.toggle('matched');
       secondCard.classList.toggle('matched');
 
-      let matched = document.querySelectorAll("div.matched");
-      return matched
-    } else {
-      for (let card of selectedCards) {
-        unFlipCard(card);
-      }
-    }
+      selectedCards = []; // Reset the selected cards array
 
-    selectedCards = []; // Reset the selected cards array
+      // Check if all cards are matched
+      if (document.querySelectorAll('.matched').length === COLORS.length) {
+        setTimeout(() => {
+          alert("Congratulations! You have won the game!");
+        }, FOUND_MATCH_WAIT_MSECS);
+      }
+    } else {
+      setTimeout(() => {
+        for (let card of selectedCards) {
+          unFlipCard(card);
+        }
+        selectedCards = []; // Reset the selected cards array
+      }, FOUND_MATCH_WAIT_MSECS);
+    }
   }
 }
