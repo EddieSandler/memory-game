@@ -3,13 +3,13 @@
   width: 100px;
   height: 100px;
   margin: 20px;
-  display: inline-table;
+  display: inline-block;
   animation-delay: 250ms;
 
 
 }
 
-#color {
+/* #color {
   display: none;
 
 }
@@ -22,9 +22,9 @@
     flex-wrap: wrap;
     position:relative;
     /* top: 20%; */
-    left: 36.5%;
+    /* left: 36.5%; */
 
-    }
+    /* }
     .container div {
       rotate: right;
 
@@ -32,11 +32,11 @@
 
 
 
-body{
+/* body{
   background-color: aqua;
   justify-content: center;
 }
 
 .container div:click .divr {
   transform: rotateY(180deg);
-}
+} */
