@@ -62,7 +62,7 @@ function unFlipCard(card) {
 function handleCardClick(evt) {
   const clickedCard = evt.target;
 
-  if (selectedCards.includes(clickedCard) ||stopClicking==true) {
+  if (selectedCards.includes(clickedCard) ||stopClicking==true ||clickedCard.id==="game") {
     return; // Return early if the card ics already selected
   }
 
@@ -71,9 +71,9 @@ function handleCardClick(evt) {
   if(selectedCards.length==2) stopClicking = true;
 
 
-  console.log(clickedCard.classList);
-  console.log(clickedCard.id)
-  console.log(selectedCards)
+
+  console.log('id',clickedCard.id)
+
 
   flipCard(clickedCard);
 
@@ -112,7 +112,6 @@ function handleCardClick(evt) {
     }
   }
 }
-
 
 
 
