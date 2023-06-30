@@ -11,6 +11,8 @@ const COLORS = [
 
 // function to start the game
 function resetGame() {
+ ;
+  startButton.removeEventListener("click",resetGame);
 const colors = shuffle(COLORS);
 createCards(colors);
 }
@@ -39,6 +41,7 @@ function createCards(colors) {
   const gameBoard = document.getElementById("game");
 
   for (let color of colors) {
+  
     const card = document.createElement('div');
     card.id = color;
     card.classList.add(color);
@@ -61,13 +64,10 @@ function unFlipCard(card) {
   card.classList.toggle('flipped');
   card.classList.toggle('clicked');
   setTimeout(() => {
-<<<<<<< HEAD
     card.style.backgroundColor = ''; // resets cards when unmatched
     stopClicking=false
-=======
     card.style.backgroundColor = '';
     console.log('')
->>>>>>> f712fc55df346e513fcc22db2410537521619282
   }, 1000);
 
 }
@@ -110,8 +110,9 @@ function handleCardClick(evt) {
       // Check if all cards are matched
       if (document.querySelectorAll('.matched').length === COLORS.length) {
         setTimeout(() => {
-          alert("Congratulations! You have won the game!");
-          newGame()
+          alert("Game Over");
+          PlayAgain()
+          
         }, FOUND_MATCH_WAIT_MSECS);
 
         //create  a reset button
@@ -133,16 +134,21 @@ function handleCardClick(evt) {
     }
   }
 
-  function newGame() {
-    let resetButton= document.createElement('BUTTON')
-    resetButton.innerHTML="Play Again"
-    document.body.append(resetButton)
-      document.querySelectorAll("#container").backgroundColor=""
+  function PlayAgain() {
+  let resetButton= document.createElement('BUTTON')
+  resetButton.innerHTML="Play Again"
+  document.body.append(resetButton)
 
-        resetButton.addEventListener('click',resetGame)
+  resetButton.addEventListener("click",newGame);
+  }
+
+  function newGame() {
+   
+    location.reload()
+    resetGame();
+    
   }
 }
-
 
 
 
