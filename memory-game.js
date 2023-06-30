@@ -61,8 +61,13 @@ function unFlipCard(card) {
   card.classList.toggle('flipped');
   card.classList.toggle('clicked');
   setTimeout(() => {
+<<<<<<< HEAD
     card.style.backgroundColor = ''; // resets cards when unmatched
     stopClicking=false
+=======
+    card.style.backgroundColor = '';
+    console.log('')
+>>>>>>> f712fc55df346e513fcc22db2410537521619282
   }, 1000);
 
 }
