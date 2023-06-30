@@ -42,6 +42,7 @@ function createCards(colors) {
 function flipCard(card) {
   card.classList.toggle('flipped');
   card.style.backgroundColor = card.id;
+
 }
 
 /** Flip a card face-down. */
@@ -66,14 +67,16 @@ function handleCardClick(evt) {
 
   flipCard(clickedCard);
 
-  if (selectedCards.length === 2) {
+  if (selectedCards.length <=2) {
     const firstCard = selectedCards[0];
     const secondCard = selectedCards[1];
 
+
     if (firstCard.id === secondCard.id) {
-      console.log("MATCH");
+
       firstCard.classList.toggle('matched');
       secondCard.classList.toggle('matched');
+      alert("MATCH");
 
       selectedCards = []; // Reset the selected cards array
 

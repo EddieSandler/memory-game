@@ -1,13 +1,42 @@
-/* you can add to or change this. */
-
 #game div {
   border: 1px solid black;
   width: 100px;
   height: 100px;
   margin: 20px;
-  display: inline-block;
+  display: inline-table;
+  animation-delay: 250ms;
+
+
 }
 
 #color {
-  display: none 
+  display: none;
+
+}
+
+.container{
+
+    width: 400px;
+    height: 300px;
+    display: flex;
+    flex-wrap: wrap;
+    position:relative;
+    /* top: 20%; */
+    left: 36.5%;
+
+    }
+    .container div {
+      rotate: right;
+
+    }
+
+
+
+body{
+  background-color: aqua;
+  justify-content: center;
+}
+
+.container div:click .divr {
+  transform: rotateY(180deg);
 }
