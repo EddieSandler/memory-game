@@ -13,6 +13,7 @@ const colors = shuffle(COLORS);
 createCards(colors);
 
 let selectedCards = []; // Global variable to store clicked cards
+let stopClicking = false;
 
 /** Shuffle array items in-place and return shuffled array. */
 function shuffle(items) {
@@ -51,19 +52,28 @@ function unFlipCard(card) {
   card.classList.toggle('clicked');
   setTimeout(() => {
     card.style.backgroundColor = '';
-  }, "1000");
+    stopClicking=false
+  }, 1000);
+
 }
+
 
 /** Handle clicking on a card: this could be first-card or second-card. */
 function handleCardClick(evt) {
   const clickedCard = evt.target;
 
-  if (selectedCards.includes(clickedCard)) {
-    return; // Return early if the card is already selected
+  if (selectedCards.includes(clickedCard) ||stopClicking==true) {
+    return; // Return early if the card ics already selected
   }
 
   clickedCard.clicked = true; // Mark the card as clicked
   selectedCards.push(clickedCard);
+  if(selectedCards.length==2) stopClicking = true;
+
+
+  console.log(clickedCard.classList);
+  console.log(clickedCard.id)
+  console.log(selectedCards)
 
   flipCard(clickedCard);
 
@@ -71,12 +81,17 @@ function handleCardClick(evt) {
     const firstCard = selectedCards[0];
     const secondCard = selectedCards[1];
 
+    if(selectedCards.length == 2) {
+      stopClicking = true;
+    }
+
 
     if (firstCard.id === secondCard.id) {
 
       firstCard.classList.toggle('matched');
       secondCard.classList.toggle('matched');
       alert("MATCH");
+      stopClicking = false;
 
       selectedCards = []; // Reset the selected cards array
 
@@ -92,7 +107,45 @@ function handleCardClick(evt) {
           unFlipCard(card);
         }
         selectedCards = []; // Reset the selected cards array
+        stopClickingCard= false
       }, FOUND_MATCH_WAIT_MSECS);
     }
   }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
