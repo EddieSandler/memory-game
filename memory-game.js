@@ -52,7 +52,7 @@ function unFlipCard(card) {
   card.classList.toggle('clicked');
   setTimeout(() => {
     card.style.backgroundColor = '';
-    stopClicking=false
+    console.log('')
   }, 1000);
 
 }
