@@ -16,7 +16,7 @@
   gap: none;
   margin-top: 50px;
   border:2px solid black;
-  background-color: rgb(235, 240, 247);
+  background-color: rgb(197, 221, 255);
   max-width: min-content;
   margin:auto ;
 }
@@ -39,3 +39,10 @@ h2{
 hr{
   padding-top: 50px;
 }
+
+body {
+ 
+  
+  background-color: rgb(197,221,255)
+}
+

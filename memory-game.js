@@ -130,9 +130,12 @@ function handleCardClick(evt) {
   }
 
   function PlayAgain() {
+   
   let resetButton= document.createElement('BUTTON')
+
   resetButton.innerHTML="Play Again"
-  document.body.append(resetButton)
+  document.body.appendChild(resetButton)
+  
 
   resetButton.addEventListener("click",newGame);
   }
