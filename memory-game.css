@@ -41,8 +41,18 @@ hr{
 }
 
 body {
- 
-  
+
+
   background-color: rgb(197,221,255)
 }
 
+#btn_start, #btn_reset{
+  background-color: blue;
+  color:white;
+  font-weight:bold
+}
+#btn_reset{
+  background-color:blue;
+  margin-left: 50%;
+  margin-top:5%
+}

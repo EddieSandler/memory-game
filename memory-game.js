@@ -41,7 +41,7 @@ function createCards(colors) {
   const gameBoard = document.getElementById("game");
 
   for (let color of colors) {
-  
+
     const card = document.createElement('div');
     card.id = color;
     card.classList.add(color);
@@ -61,8 +61,7 @@ function flipCard(card) {
 
 /** Flip a card face-down. */
 function unFlipCard(card) {
-  card.classList.toggle('flipped');
-  card.classList.toggle('clicked');
+
   setTimeout(() => {
     card.style.backgroundColor = ''; // resets cards when unmatched
     stopClicking=false
@@ -115,7 +114,7 @@ function handleCardClick(evt) {
         setTimeout(() => {
           alert("Game Over");
           PlayAgain()
-          
+
         }, FOUND_MATCH_WAIT_MSECS);
       }
     } else {
@@ -130,21 +129,22 @@ function handleCardClick(evt) {
   }
 
   function PlayAgain() {
-   
+
   let resetButton= document.createElement('BUTTON')
+  resetButton.id="btn_reset"
 
   resetButton.innerHTML="Play Again"
   document.body.appendChild(resetButton)
-  
+
 
   resetButton.addEventListener("click",newGame);
   }
 
   function newGame() {
-   
+
     location.reload()
     resetGame();
-    
+
   }
 }
 
